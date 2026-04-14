@@ -114,14 +114,25 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 ### Repository Structure
 
 ```
+|-- README.md
 |-- data/
 |   |-- function_1_initial_inputs.npy
 |   |-- function_1_initial_outputs.npy
-|   `-- ...                            # initial data for all 8 functions
-|-- week1_bayesian_optimisation.ipynb  # Round 1 queries and EDA
-|-- week2_bayesian_optimisation.ipynb  # Round 2 - adaptive kappa introduced
-|-- week3_bayesian_optimisation.ipynb  # Round 3 - exploit-focused, F1 fix
-`-- README.md
+|   `-- ...                              # all 16 initial .npy files
+|-- notebooks/
+|   |-- week1_bayesian_optimisation.ipynb
+|   |-- week2_bayesian_optimisation.ipynb
+|   |-- week3_bayesian_optimisation.ipynb
+|   `-- week4_bayesian_optimisation.ipynb
+|-- reflections/
+|   |-- Week1_Reflection.docx
+|   `-- ...
+|-- outputs/
+|   |-- week1_outputs.txt
+|   `-- ...
+`-- docs/
+    |-- 8-data-and-descriptions-of-functions.pdf
+    `-- function_descriptions.txt
 ```
 
 > **Note:** This README is a living document and will be updated after each submission round to reflect new results, strategy changes, and any shifts in the approach.
