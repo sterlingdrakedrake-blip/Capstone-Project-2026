@@ -1,12 +1,12 @@
-# Black-Box Optimization Capstone
+# Black-Box Optimisation Capstone
 
 ## Section 1: Project Overview
 
-This project is a Bayesian optimization competition in which the goal is to find the maximum output of eight unknown (black-box) functions through a series of iterative queries. Each function accepts a fixed-dimensional input vector and returns a single scalar output. The internal mechanics of every function are hidden; only the input-output relationship is observable through the data.
+This project is a Bayesian optimisation competition in which the goal is to find the maximum output of eight unknown (black-box) functions through a series of iterative queries. Each function accepts a fixed-dimensional input vector and returns a single scalar output. The internal mechanics of every function are hidden; only the input-output relationship is observable through the data.
 
 The project simulates a class of problems that appear frequently in real-world machine learning and engineering: situations where evaluating a function is expensive, slow, or otherwise limited, and where the structure of the objective is not known in advance. Examples include hyperparameter tuning for deep learning models, drug candidate screening, materials science experiments, and industrial process optimisation. In each of these settings, a practitioner cannot afford to evaluate every possible configuration and must instead make intelligent, data-driven decisions about where to look next.
 
-From a career perspective, the skills developed here transfer directly to applied ML roles. The ability to reason under uncertainty, build surrogate models, balance exploration against exploitation, and revise a strategy based on new evidence is central to any data science or MLOps function. Many production ML workflows involve exactly this kind of sequential decision-making, whether tuning a recommendation system, calibrating a simulation, or optimizing a business process where full enumeration is not feasible.
+From a career perspective, the skills developed here transfer directly to applied ML roles. The ability to reason under uncertainty, build surrogate models, balance exploration against exploitation, and revise a strategy based on new evidence is central to any data science or MLOps function. Many production ML workflows involve exactly this kind of sequential decision-making, whether tuning a recommendation system, calibrating a simulation, or optimising a business process where full enumeration is not feasible.
 
 ---
 
@@ -45,7 +45,7 @@ Function 8 (8D):  0.024544-0.175956-0.116596-0.359046-0.449942-0.482790-0.135292
 
 ## Section 3: Challenge Objectives
 
-The goal for every function is **maximization**: find the input vector that produces the highest possible output value. Some functions are framed as minimization problems in their original domain (for example, minimizing adverse drug reactions or minimizing recipe cost), but these are transformed so that maximizing the returned output is always the correct objective.
+The goal for every function is **maximisation**: find the input vector that produces the highest possible output value. Some functions are framed as minimisation problems in their original domain (for example, minimising adverse drug reactions or minimising recipe cost), but these are transformed so that maximising the returned output is always the correct objective.
 
 **Constraints and limitations to consider:**
 
@@ -62,7 +62,7 @@ The goal for every function is **maximization**: find the input vector that prod
 
 ### Surrogate Model
 
-All queries are generated using a **Gaussian Process (GP) regressor** with a Matern 5/2 kernel, implemented via scikit-learn's `GaussianProcessRegressor`. The GP is fitted to all available (input, output) pairs for a given function and produces a predicted mean and uncertainty estimate for any candidate point in the input space. The kernel's length-scale and noise parameters are optimised by maximizing the marginal likelihood at each round.
+All queries are generated using a **Gaussian Process (GP) regressor** with a Matern 5/2 kernel, implemented via scikit-learn's `GaussianProcessRegressor`. The GP is fitted to all available (input, output) pairs for a given function and produces a predicted mean and uncertainty estimate for any candidate point in the input space. The kernel's length-scale and noise parameters are optimised by maximising the marginal likelihood at each round.
 
 ### Acquisition Function
 
@@ -80,7 +80,7 @@ Rather than fixing `kappa` across all functions and all rounds, `kappa` is tuned
 
 | kappa value | When applied | Rationale |
 |---|---|---|
-| 2.576 | Round 1 (all functions) | High uncertainty, prioritize exploration |
+| 2.576 | Round 1 (all functions) | High uncertainty, prioritise exploration |
 | 2.5 | Functions that have regressed or stalled | Force the GP to search new regions |
 | 2.0 | Balanced cases with mixed results | Equal weight to mean and uncertainty |
 | 1.5 | Functions with a recent new best | Begin exploiting the promising region |
@@ -92,18 +92,18 @@ This schedule implements a principled **decay from exploration to exploitation**
 
 Function 1 has returned near-zero outputs across all three rounds. With no meaningful signal, the GP has nothing to fit and its recommendations are unreliable. For this function a **max-distance grid sweep** is used instead: a fine grid of 200 x 200 points is laid over [0.01, 0.99]^2 and the point furthest from all previously observed inputs is selected. This guarantees coverage of unvisited regions without relying on a model that has no information to work with.
 
-### Progress After Three Rounds
+### Progress After Four Rounds
 
-| Function | Initial Best | Best After Round 3 | Status |
-|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | No signal found yet |
-| F2 | 0.6112 | 0.6112 | Matched but not beaten |
-| F3 | -0.0348 | -0.0106 | Improved - new best |
-| F4 | -4.0255 | -1.3242 | Improved - new best |
-| F5 | 1088.86 | 2201.35 | Strong consistent gains |
-| F6 | -0.7143 | -0.7143 | Recovering after regression |
-| F7 | 1.3650 | 1.9584 | Strong single-round jump |
-| F8 | 9.5985 | 9.8527 | Steady incremental gains |
+| Function | Initial Best | After R1 | After R2 | After R3 | After R4 (best so far) | Trend |
+|---|---|---|---|---|---|---|
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal yet |
+| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Matched but not beaten |
+| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | TBC | New best found R2 |
+| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | TBC | Best from R1, regressing |
+| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | TBC | New best every round |
+| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | TBC | New best R3 |
+| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | TBC | New best R2 |
+| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | TBC | Steady gains every round |
 
 ### Considered Alternatives
 
