@@ -94,16 +94,16 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 
 ### Progress After Four Rounds
 
-| Function | Initial Best | After R1 | After R2 | After R3 | After R4 (best so far) | Trend |
-|---|---|---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal yet |
-| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Matched but not beaten |
-| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | TBC | New best found R2 |
-| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | TBC | Best from R1, regressing |
-| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | TBC | New best every round |
-| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | TBC | New best R3 |
-| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | TBC | New best R2 |
-| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | TBC | Steady gains every round |
+| Function | Initial Best | R1 | R2 | R3 | R4 | R5 (best so far) | Trend |
+|---|---|---|---|---|---|---|---|
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal yet |
+| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Matched but not beaten |
+| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | TBC | Best from R2, regressing |
+| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | TBC | First positive output R4 |
+| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | TBC | New best every round |
+| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | TBC | Consistent gains R3-R4 |
+| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | TBC | Best from R2, regressing |
+| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | TBC | Steady gains every round |
 
 ### Considered Alternatives
 
@@ -123,7 +123,8 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 |   |-- week1_bayesian_optimisation.ipynb
 |   |-- week2_bayesian_optimisation.ipynb
 |   |-- week3_bayesian_optimisation.ipynb
-|   `-- week4_bayesian_optimisation.ipynb
+|   |-- week4_bayesian_optimisation.ipynb
+|   `-- week5_bayesian_optimisation.ipynb
 |-- reflections/
 |   |-- Week1_Reflection.docx
 |   `-- ...
