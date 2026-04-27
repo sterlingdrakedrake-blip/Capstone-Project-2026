@@ -94,16 +94,16 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 
 ### Progress After Four Rounds
 
-| Function | Initial Best | R1 | R2 | R3 | R4 | R5 (best so far) | Trend |
-|---|---|---|---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal yet |
-| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Matched but not beaten |
-| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | TBC | Best from R2, regressing |
-| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | TBC | First positive output R4 |
-| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | TBC | New best every round |
-| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | TBC | Consistent gains R3-R4 |
-| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | TBC | Best from R2, regressing |
-| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | TBC | Steady gains every round |
+| Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 (best so far) | Trend |
+|---|---|---|---|---|---|---|---|---|
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal after 5 rounds |
+| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Matched but not beaten |
+| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | TBC | Best from R2, worst in R5 |
+| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | TBC | Breakthrough R4, lost in R5 |
+| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | TBC | New best every round |
+| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | -0.2138 | TBC | Best R4, regressed R5 |
+| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | TBC | Best from R2, regressing |
+| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | 9.8783 | TBC | Best R4, marginal miss R5 |
 
 ### Considered Alternatives
 
@@ -124,7 +124,8 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 |   |-- week2_bayesian_optimisation.ipynb
 |   |-- week3_bayesian_optimisation.ipynb
 |   |-- week4_bayesian_optimisation.ipynb
-|   `-- week5_bayesian_optimisation.ipynb
+|   |-- week5_bayesian_optimisation.ipynb
+|   `-- week6_bayesian_optimisation.ipynb
 |-- reflections/
 |   |-- Week1_Reflection.docx
 |   `-- ...
