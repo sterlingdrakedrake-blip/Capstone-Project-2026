@@ -1,10 +1,10 @@
-# Black-Box Optimisation Capstone
+# Black-Box Optimization Capstone
 
 ## Section 1: Project Overview
 
-This project is a Bayesian optimisation competition in which the goal is to find the maximum output of eight unknown (black-box) functions through a series of iterative queries. Each function accepts a fixed-dimensional input vector and returns a single scalar output. The internal mechanics of every function are hidden; only the input-output relationship is observable through the data.
+This project is a Bayesian optimization competition in which the goal is to find the maximum output of eight unknown (black-box) functions through a series of iterative queries. Each function accepts a fixed-dimensional input vector and returns a single scalar output. The internal mechanics of every function are hidden; only the input-output relationship is observable through the data.
 
-The project simulates a class of problems that appear frequently in real-world machine learning and engineering: situations where evaluating a function is expensive, slow, or otherwise limited, and where the structure of the objective is not known in advance. Examples include hyperparameter tuning for deep learning models, drug candidate screening, materials science experiments, and industrial process optimisation. In each of these settings, a practitioner cannot afford to evaluate every possible configuration and must instead make intelligent, data-driven decisions about where to look next.
+The project simulates a class of problems that appear frequently in real-world machine learning and engineering: situations where evaluating a function is expensive, slow, or otherwise limited, and where the structure of the objective is not known in advance. Examples include hyperparameter tuning for deep learning models, drug candidate screening, materials science experiments, and industrial process optimization. In each of these settings, a practitioner cannot afford to evaluate every possible configuration and must instead make intelligent, data-driven decisions about where to look next.
 
 From a career perspective, the skills developed here transfer directly to applied ML roles. The ability to reason under uncertainty, build surrogate models, balance exploration against exploitation, and revise a strategy based on new evidence is central to any data science or MLOps function. Many production ML workflows involve exactly this kind of sequential decision-making, whether tuning a recommendation system, calibrating a simulation, or optimising a business process where full enumeration is not feasible.
 
@@ -35,11 +35,11 @@ Function 8 (8D):  0.024544-0.175956-0.116596-0.359046-0.449942-0.482790-0.135292
 | F1 | 2 | 10 | Radiation source detection |
 | F2 | 2 | 10 | Noisy ML log-likelihood surface |
 | F3 | 3 | 15 | Drug discovery - adverse reaction minimisation |
-| F4 | 4 | 30 | Warehouse placement optimisation |
+| F4 | 4 | 30 | Warehouse placement optimization |
 | F5 | 4 | 20 | Chemical process yield |
 | F6 | 5 | 20 | Cake recipe multi-objective scoring |
 | F7 | 6 | 30 | ML model hyperparameter tuning |
-| F8 | 8 | 40 | High-dimensional model performance optimisation |
+| F8 | 8 | 40 | High-dimensional model performance optimization |
 
 ---
 
@@ -120,12 +120,12 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 |   |-- function_1_initial_outputs.npy
 |   `-- ...                              # all 16 initial .npy files
 |-- notebooks/
-|   |-- week1_bayesian_optimisation.ipynb
-|   |-- week2_bayesian_optimisation.ipynb
-|   |-- week3_bayesian_optimisation.ipynb
-|   |-- week4_bayesian_optimisation.ipynb
-|   |-- week5_bayesian_optimisation.ipynb
-|   `-- week6_bayesian_optimisation.ipynb
+|   |-- week1_bayesian_optimization.ipynb
+|   |-- week2_bayesian_optimization.ipynb
+|   |-- week3_bayesian_optimization.ipynb
+|   |-- week4_bayesian_optimization.ipynb
+|   |-- week5_bayesian_optimization.ipynb
+|   `-- week6_bayesian_optimization.ipynb
 |-- reflections/
 |   |-- Week1_Reflection.docx
 |   `-- ...
