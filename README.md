@@ -94,16 +94,16 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 
 ### Progress After Four Rounds
 
-| Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 (best so far) | Trend |
-|---|---|---|---|---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal after 5 rounds |
-| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Matched but not beaten |
-| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | TBC | Best from R2, worst in R5 |
-| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | TBC | Breakthrough R4, lost in R5 |
-| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | TBC | New best every round |
-| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | -0.2138 | TBC | Best R4, regressed R5 |
-| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | TBC | Best from R2, regressing |
-| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | 9.8783 | TBC | Best R4, marginal miss R5 |
+| Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 | R7 (best so far) | Trend |
+|---|---|---|---|---|---|---|---|---|---|
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No positive signal after 6 rounds |
+| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | TBC | Still just below initial best |
+| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | TBC | Best from R2, consistently regressing |
+| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | 0.3657 | TBC | Breakthrough R4, struggling to repeat |
+| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | 6210.69 | TBC | New best every round |
+| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | -0.2138 | -0.2138 | TBC | Best R4, volatile since |
+| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | TBC | Best R2, near miss 1.926 in R6 |
+| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | 9.8783 | 9.9536 | TBC | New best R6 |
 
 ### Considered Alternatives
 
@@ -125,7 +125,8 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 |   |-- week3_bayesian_optimization.ipynb
 |   |-- week4_bayesian_optimization.ipynb
 |   |-- week5_bayesian_optimization.ipynb
-|   `-- week6_bayesian_optimization.ipynb
+|   |-- week6_bayesian_optimization.ipynb
+|   `-- week7_bayesian_optimisation.ipynb
 |-- reflections/
 |   |-- Week1_Reflection.docx
 |   `-- ...
