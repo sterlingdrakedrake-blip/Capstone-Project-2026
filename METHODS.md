@@ -65,11 +65,22 @@ This decaying exploration schedule is grounded in the theoretical result that re
 
 Function 1 has returned near-zero outputs across all rounds. With no meaningful signal, the GP has nothing to learn from and its acquisition scores are arbitrary. A **max-distance grid sweep** is used instead:
 
+**Rounds 1-9 (max-distance):**
 1. A 200x200 grid is laid over [0.05, 0.95]^2
 2. For each grid point, the minimum distance to all previously observed inputs is computed using `scipy.spatial.distance.cdist`
 3. The grid point with the largest minimum distance is selected
 
-This guarantees that each query covers a genuinely new region rather than clustering near prior observations.
+**Rounds 10-13 (planned systematic sweep):**
+After 9 rounds with no signal, four target coordinates were pre-calculated by iteratively selecting the maximum-distance point from a 300x300 grid and adding each selection to the exclusion set before finding the next. This produces four well-spaced points covering previously unsampled regions:
+
+| Round | Target coordinate |
+|---|---|
+| W10 | 0.227592-0.561706 |
+| W11 | 0.272742-0.308863 |
+| W12 | 0.227592-0.950000 |
+| W13 | 0.591806-0.239632 |
+
+If any of these returns a non-zero output, the strategy reverts to GP-UCB exploitation around that point.
 
 ---
 
@@ -99,4 +110,6 @@ This guarantees that each query covers a genuinely new region rather than cluste
 
 ---
 
-*This document is updated alongside the weekly notebooks. Last updated: Round 6.*
+*This document is updated alongside the weekly notebooks. Last updated: Round 10.*
+
+*Additional documentation: See DATASHEET.md for dataset documentation and MODEL_CARD.md for full model reporting following Gebru et al. (2021) and Mitchell et al. (2019) respectively.*
