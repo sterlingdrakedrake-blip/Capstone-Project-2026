@@ -90,9 +90,9 @@ This schedule implements a principled **decay from exploration to exploitation**
 
 ### Special Case: Function 1
 
-Function 1 has returned near-zero outputs across all three rounds. With no meaningful signal, the GP has nothing to fit and its recommendations are unreliable. For this function a **max-distance grid sweep** is used instead: a fine grid of 200 x 200 points is laid over [0.01, 0.99]^2 and the point furthest from all previously observed inputs is selected. This guarantees coverage of unvisited regions without relying on a model that has no information to work with.
+Function 1 has returned near-zero outputs across all ten completed rounds. With no meaningful signal, the GP has nothing to fit and its recommendations are unreliable. For Rounds 1-9, a **max-distance grid sweep** was used: a fine grid of 200 x 200 points over [0.05, 0.95]^2 with the point furthest from all previously observed inputs selected each round. From Round 10 onward, a **pre-planned systematic sweep** is used instead, placing four fixed coordinates calculated to cover the remaining unexplored regions of the space: [0.228, 0.562] in R10, [0.273, 0.309] in R11, [0.228, 0.950] in R12, and [0.592, 0.240] in R13.
 
-### Progress After Four Rounds
+### Progress After Ten Rounds
 
 | Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 | R11 (best so far) | Trend |
 |---|---|---|---|---|---|---|---|---|---|---|
