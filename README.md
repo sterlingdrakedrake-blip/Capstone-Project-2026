@@ -94,16 +94,16 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 
 ### Progress After Four Rounds
 
-| Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 (best so far) | Trend |
+| Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 | R11 (best so far) | Trend |
 |---|---|---|---|---|---|---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No signal after 9 rounds; planned sweep W10-W13 |
-| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6467 | 0.6467 | TBC | New all-time best R9 -- beat initial |
-| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | TBC | Best R2, volatile since |
-| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | TBC | Breakthrough R4, struggling to consolidate |
-| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | 6210.69 | 6446.00 | 6446.00 | 6446.00 | TBC | Best R7, declining trend R8-R9 |
-| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | TBC | Best R4, volatile |
-| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | TBC | Best R2, badly regressed R9 |
-| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | 9.8783 | 9.9536 | 9.9536 | 9.9795 | 9.9795 | TBC | New best R9 |
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | TBC | No signal after 10 rounds; sweep W10-W13 |
+| F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6467 | 0.6467 | 0.6467 | TBC | Best R9, slight regress R10 |
+| F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | TBC | Best R2, near-best -0.013 in R10 |
+| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.5197 | 0.5197 | TBC | New all-time best R10 |
+| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | 6210.69 | 6446.00 | 6446.00 | 6640.58 | 6640.58 | TBC | New best R10 |
+| F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | TBC | Best R4, persistently volatile |
+| F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | TBC | Best R2, unable to recover |
+| F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | 9.8783 | 9.9536 | 9.9536 | 9.9795 | 9.9795 | 9.9795 | TBC | Best R9, slight regress R10 |
 
 ### Considered Alternatives
 
@@ -129,7 +129,8 @@ Function 1 has returned near-zero outputs across all three rounds. With no meani
 |   |-- week7_bayesian_optimisation.ipynb
 |   |-- week8_bayesian_optimisation.ipynb
 |   |-- week9_bayesian_optimisation.ipynb
-|   `-- week10_bayesian_optimisation.ipynb
+|   |-- week10_bayesian_optimisation.ipynb
+|   `-- week11_bayesian_optimisation.ipynb
 |-- reflections/
 |   |-- Week1_Reflection.docx
 |   `-- ...
