@@ -85,18 +85,19 @@ Rather than fixing `kappa` across all functions and all rounds, `kappa` is tuned
 | 2.0 | Balanced cases with mixed results | Equal weight to mean and uncertainty |
 | 1.5 | Functions with a recent new best | Begin exploiting the promising region |
 | 1.0 | Functions improving consistently every round | Concentrate search near the current peak |
+| 0.5 | Functions with a confirmed stable best | Exploit very hard near the known optimum |
 
 This schedule implements a principled **decay from exploration to exploitation** as evidence accumulates, rather than applying a single heuristic blindly.
 
 ### Special Case: Function 1
 
-Function 1 has returned near-zero outputs across all ten completed rounds. With no meaningful signal, the GP has nothing to fit and its recommendations are unreliable. For Rounds 1-9, a **max-distance grid sweep** was used: a fine grid of 200 x 200 points over [0.05, 0.95]^2 with the point furthest from all previously observed inputs selected each round. From Round 10 onward, a **pre-planned systematic sweep** is used instead, placing four fixed coordinates calculated to cover the remaining unexplored regions of the space: [0.228, 0.562] in R10, [0.273, 0.309] in R11, [0.228, 0.950] in R12, and [0.592, 0.240] in R13.
+Function 1 has returned near-zero outputs across all thirteen completed rounds. With no meaningful signal, the GP has nothing to fit and its recommendations are unreliable. For Rounds 1-9, a **max-distance grid sweep** was used: a fine grid of 200 x 200 points over [0.05, 0.95]^2 with the point furthest from all previously observed inputs selected each round. From Round 10 onward, a **pre-planned systematic sweep** is used instead, placing four fixed coordinates calculated to cover the remaining unexplored regions of the space: [0.228, 0.562] in R10, [0.273, 0.309] in R11, [0.228, 0.950] in R12, and [0.592, 0.240] in R13.
 
-### Progress After Ten Rounds
+### Progress After Thirteen Rounds
 
 | Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 | R11 | R12 | FINAL BEST | Trend |
-|---|---|---|---|---|---|---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | **0.0000** | No signal across all 12 rounds |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | **0.0000** | No signal across all 13 rounds |
 | F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6467 | 0.6467 | 0.6467 | 0.6782 | 0.6782 | **0.6782** | New best R11 (+10.9% vs initial) |
 | F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0002 | -0.0002 | **-0.0002** | Essentially zero -- new best R11 |
 | F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.5197 | 0.5197 | 0.5197 | 0.5197 | **0.5197** | From -4.03 to +0.52 |
@@ -107,7 +108,7 @@ Function 1 has returned near-zero outputs across all ten completed rounds. With 
 
 ### Considered Alternatives
 
-- **SVM classifier:** A soft-margin SVM with an RBF kernel could classify input regions as high or low performing (e.g. above/below the top quartile). This becomes more viable as data accumulates. At current sample sizes (12 to 42 points per function), overfitting is a significant risk.
+- **SVM classifier:** A soft-margin SVM with an RBF kernel could classify input regions as high or low performing (e.g. above/below the top quartile). This becomes more viable as data accumulates. At final sample sizes (22 to 52 points per function), overfitting is a significant risk.
 - **Linear/logistic regression:** Useful as a quick feature relevance check via correlation analysis, which is run each round before querying. Not used for query selection due to the non-linear response surfaces observed in most functions.
 - **Random search:** Used as a fallback baseline. The 100,000-candidate random pool in the UCB step effectively incorporates random search as a component, while the GP acquisition function filters it intelligently.
 
@@ -146,4 +147,4 @@ Function 1 has returned near-zero outputs across all ten completed rounds. With 
 `-- MODEL_CARD.md
 ```
 
-> **Note:** This README is a living document and will be updated after each submission round to reflect new results, strategy changes, and any shifts in the approach.
+> **Note:** This README documents the completed 13-round capstone project. All results, strategy changes, and query decisions are recorded above. The final query strings were submitted in Round 13 and results are pending.
