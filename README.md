@@ -97,11 +97,11 @@ Function 1 has returned near-zero outputs across all thirteen completed rounds. 
 
 | Function | Initial Best | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 | R11 | R12 | FINAL BEST | Trend |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | **0.0000** | No signal across all 13 rounds |
+| F1 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | **0.0000** | No signal in 13 rounds -- systematic sweep completed |
 | F2 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6112 | 0.6467 | 0.6467 | 0.6467 | 0.6782 | 0.6782 | **0.6782** | New best R11 (+10.9% vs initial) |
 | F3 | -0.0348 | -0.0348 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0106 | -0.0002 | -0.0002 | **-0.0002** | Essentially zero -- new best R11 |
-| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.5197 | 0.5197 | 0.5197 | 0.5197 | **0.5197** | From -4.03 to +0.52 |
-| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | 6210.69 | 6446.00 | 6446.00 | 6640.58 | 6640.58 | 6640.58 | 6640.58 | **6640.58** | +510% vs initial -- best function |
+| F4 | -4.0255 | -1.3242 | -1.3242 | -1.3242 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.3657 | 0.5197 | 0.5197 | 0.5197 | 0.5197 | **0.6646** | Final best R13 -- new peak last round (+116.5%) |
+| F5 | 1088.86 | 2021.56 | 2201.35 | 2761.25 | 5079.04 | 6204.01 | 6210.69 | 6446.00 | 6446.00 | 6640.58 | 6640.58 | 6640.58 | 6640.58 | **6640.58** | Final best R10 (+510% -- strongest function) |
 | F6 | -0.7143 | -0.7143 | -0.7143 | -0.4256 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | -0.2138 | **-0.2138** | Best R4, volatile since |
 | F7 | 1.3650 | 1.3650 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9584 | 1.9724 | 1.9724 | **1.9724** | New best R11 (+44.5% vs initial) |
 | F8 | 9.5985 | 9.8100 | 9.8527 | 9.8684 | 9.8783 | 9.8783 | 9.9536 | 9.9536 | 9.9795 | 9.9795 | 9.9795 | 9.9795 | 9.9795 | **9.9795** | Best R9 (+4.0% vs initial) |
@@ -147,4 +147,4 @@ Function 1 has returned near-zero outputs across all thirteen completed rounds. 
 `-- MODEL_CARD.md
 ```
 
-> **Note:** This README documents the completed 13-round capstone project. All results, strategy changes, and query decisions are recorded above. The final query strings were submitted in Round 13 and results are pending.
+> **Note:** This README documents the completed 13-round capstone project. All 13 rounds of results are final. Project concluded June 2026.

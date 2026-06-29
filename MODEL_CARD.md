@@ -8,7 +8,7 @@ This model card follows the Model Cards for Model Reporting framework (Mitchell 
 
 **Model name:** GP-UCB Black-Box Optimizer
 
-**Version:** Round 10 (adaptive kappa schedule)
+**Version:** Round 13 -- Final (complete 13-round adaptive kappa schedule)
 
 **Model type:** Gaussian Process surrogate with Upper Confidence Bound acquisition function
 
@@ -42,7 +42,7 @@ The project participant, course assessors, and anyone reviewing the methodology 
 
 **Relevant factors:**
 - **Function dimensionality:** The approach is applied to 2D through 8D functions. GP performance degrades as dimensionality increases due to the curse of dimensionality.
-- **Budget:** Results depend heavily on the query budget. With 9 rounds completed, higher-dimensional functions are severely undersampled.
+- **Budget:** Results depend heavily on the query budget. With 13 rounds completed, higher-dimensional functions remain undersampled relative to the size of their input spaces, but the final datasets (43-53 points for F4-F8) are sufficient for the GP to identify strong local optima.
 - **Function smoothness:** The Matern 5/2 kernel assumes twice-differentiable functions. Performance degrades on functions with discontinuities or isolated spikes.
 - **Noise level:** Some functions appear stochastic. Noisy outputs reduce GP accuracy and may mislead the acquisition function.
 
@@ -58,18 +58,18 @@ The project participant, course assessors, and anyone reviewing the methodology 
 | Round-over-round improvement | Whether each new query produced a new best |
 | GP predictive accuracy | Qualitative -- assessed by whether the acquisition function recommendations correlate with observed improvements |
 
-**Performance summary as of Round 10:**
+**Final performance summary (all 13 rounds complete):**
 
-| Function | Initial Best | Best Found | Improvement | Status |
+| Function | Initial Best | Final Best | Improvement | Round Achieved |
 |---|---|---|---|---|
-| F1 | 0.0000 | 0.0000 | 0% | No signal found |
-| F2 | 0.6112 | 0.6467 | +5.8% | New best R9 |
-| F3 | -0.0348 | -0.0106 | +69.5% | Best from R2 |
-| F4 | -4.0255 | +0.3657 | Positive | Breakthrough R4 |
-| F5 | 1088.86 | 6445.99 | +492% | Strong consistent gains |
-| F6 | -0.7143 | -0.2138 | +70.1% | Best from R4 |
-| F7 | 1.3650 | 1.9584 | +43.5% | Best from R2 |
-| F8 | 9.5985 | 9.9795 | +4.0% | New best R9 |
+| F1 | 0.0000 | ~0.0000 | No signal | -- |
+| F2 | 0.6112 | 0.6782 | +10.9% | R11 |
+| F3 | -0.0348 | -0.0002 | +99.6% | R11 |
+| F4 | -4.0255 | 0.6646 | +116.5% (from -4.03 to positive) | R13 |
+| F5 | 1088.86 | 6640.58 | +509.9% | R10 |
+| F6 | -0.7143 | -0.2138 | +70.1% | R4 |
+| F7 | 1.3650 | 1.9724 | +44.5% | R11 |
+| F8 | 9.5985 | 9.9795 | +4.0% | R9 |
 
 ---
 
@@ -111,7 +111,7 @@ UCB(x) = mu(x) + kappa * sigma(x)
 | 2.5 | Functions that have stalled or regressed -- explore new regions |
 
 **Special case -- Function 1:**
-After 9 rounds of near-zero outputs, the GP pipeline was replaced with a pre-planned systematic grid sweep. Four target coordinates were selected by iteratively maximizing the minimum distance to all previously observed points across a 300x300 grid over [0.05, 0.95]^2.
+After 9 rounds of near-zero outputs (Rounds 1-9 used dynamic max-distance sweep on a 200x200 grid), the GP pipeline was replaced with a pre-planned systematic sweep for Rounds 10-13. Four target coordinates were pre-calculated by iteratively maximizing the minimum distance to all previously observed points across a 300x300 grid over [0.05, 0.95]^2. No positive signal was detected across all 13 rounds.
 
 ---
 
@@ -125,9 +125,9 @@ After 9 rounds of near-zero outputs, the GP pipeline was replaced with a pre-pla
 
 3. **Smoothness assumption:** The Matern 5/2 kernel assumes twice-differentiable functions. Functions with narrow isolated peaks (plausibly F1) are not well-modeled.
 
-4. **Local optima:** With limited data, the GP may converge confidently around a local rather than global maximum. F4's breakthrough in Round 4 has not been reproducible in subsequent rounds, suggesting the positive basin may be narrow and the GP is unable to reliably relocate it.
+4. **Local optima:** With limited data, the GP may converge confidently around a local rather than global maximum. F4 demonstrated this clearly: it found a positive output in Round 4, lost that region for several rounds, then reached a new all-time best of 0.665 in the final round (Round 13), showing that narrow basins can be relocated but require sustained exploration.
 
-5. **Dimensionality:** Results for F7 (6D) and F8 (8D) should be interpreted cautiously. 39 and 49 observations respectively provide minimal coverage of a 6D and 8D unit hypercube.
+5. **Dimensionality:** Results for F7 (6D) and F8 (8D) should be interpreted cautiously. 43 and 53 observations respectively provide minimal coverage of a 6D and 8D unit hypercube. F7 achieved its best result in Round 11 (1.972), suggesting the GP was able to identify a high-value region despite the dimensionality challenge.
 
 **Recommendations for future use:**
 - For datasets larger than ~200 points, consider GPyTorch for GPU-accelerated inference.
@@ -151,4 +151,4 @@ The model is used exclusively for academic optimization of synthetic functions. 
 
 ---
 
-*Model card version: Round 10. Last updated following Week 9 query results.*
+*Model card version: Round 13 -- Final. Last updated following completion of all 13 query rounds. Project complete.*
